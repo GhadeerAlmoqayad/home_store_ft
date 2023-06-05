@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/app_constants.dart';
 class BackGroundScreen extends StatefulWidget {
-  final PreferredSizeWidget appBar;
+  final PreferredSizeWidget? appBar;
   final Widget child;
+  final Widget? drawer;
 
-  BackGroundScreen({required this.appBar, required this.child});
+  BackGroundScreen({ this.appBar, required this.child,this.drawer,});
 
   @override
   _BackGroundScreenState createState() => _BackGroundScreenState();
@@ -21,6 +22,7 @@ class _BackGroundScreenState extends State<BackGroundScreen> {
       backgroundColor: AppConstants.primaryGreenColor,
       extendBodyBehindAppBar: true,
       appBar: widget.appBar,
+      drawer: widget.drawer,
       body: Container(
         width: double.infinity,
         clipBehavior: Clip.antiAlias,

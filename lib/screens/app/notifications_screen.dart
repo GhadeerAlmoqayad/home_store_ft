@@ -19,6 +19,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         appBar: CustomAppBar(
           title: 'الاشعارات',
           leadingIcon: Icons.arrow_back_ios,
+          onPressedLeading: (){
+            Navigator.pop(context);
+          },
         ),
         child: ListView.builder(
             padding: EdgeInsets.symmetric(vertical: 20.h),

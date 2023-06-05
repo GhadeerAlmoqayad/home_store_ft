@@ -36,7 +36,6 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
 
     return SingleChildScrollView(
-reverse: true,
       scrollDirection: Axis.vertical,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

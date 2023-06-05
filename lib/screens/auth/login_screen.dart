@@ -35,13 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     super.dispose();
   }
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppConstants.scaffoldBackgroundColor,
 
-      body: Padding(
+      body: SingleChildScrollView(
           padding: const EdgeInsets.all(14),
           child: Column(
             children: [
@@ -64,6 +65,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 children: [
+                  Checkbox(
+                    value: isChecked,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked = value!;
+                      });
+                    },
+                  ),
+
                   Text(
                     'تذكرني',
                     style: GoogleFonts.cairo(
@@ -81,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ))
                 ],
               ),
-              AppElevatedButton(text: 'تسجيل دخول',)
+              AppElevatedButton(text: 'تسجيل دخول',onPressed:() {Navigator.pushNamed(context, '/bottom_nav_screen');},)
             ],
           )),
     );

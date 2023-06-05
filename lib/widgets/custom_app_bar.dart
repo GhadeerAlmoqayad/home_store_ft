@@ -7,12 +7,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
      required this.title,
     this.leadingIcon,
     this.actionIcon,
+    this.onPressedLeading,
     super.key,
   });
 
   final String title  ;
   final IconData? leadingIcon ;
   final IconData? actionIcon ;
+  final void Function()? onPressedLeading ;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       leading: IconButton(
           icon:  Icon(leadingIcon, color: Colors.white),
-          onPressed: () {}),
+          onPressed: onPressedLeading),
       actions: [
         IconButton(onPressed: (){}, icon: Icon(actionIcon ))
 

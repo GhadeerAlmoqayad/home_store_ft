@@ -6,7 +6,7 @@ import 'package:home_store_ft/widgets/app_elevated_button.dart';
 import 'package:home_store_ft/widgets/app_text_field.dart';
 
 import '../../widgets/custom_app_bar.dart';
-import 'back_ground_screen.dart';
+import '../app/back_ground_screen.dart';
 
 class EmailResetPassword extends StatefulWidget {
   const EmailResetPassword({Key? key}) : super(key: key);
@@ -35,6 +35,7 @@ class _EmailResetPasswordState extends State<EmailResetPassword> {
     return BackGroundScreen(
       appBar: CustomAppBar(
         leadingIcon: Icons.arrow_back_ios,
+        onPressedLeading:(){ Navigator.pop(context);},
         title: '',
       ),
       child: Padding(

@@ -61,108 +61,106 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppConstants.scaffoldBackgroundColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Padding(
-            padding: EdgeInsets.all(14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppTextField(
-                  title: 'الاسم الأول',
-                  hint: 'الاسم الأول',
-                  prefixIcon: Icons.person,
-                  keyboardType: TextInputType.text,
-                  controller: _firstNamecontroller,
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                AppTextField(
-                  title: 'اسم العائلة',
-                  hint: 'اسم العائلة',
-                  prefixIcon: Icons.person,
-                  keyboardType: TextInputType.text,
-                  controller: _famailyNameController,
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                AppTextField(
-                  title: 'البريد الالكتروني',
-                  hint: 'البريد الالكتروني',
-                  prefixIcon: Icons.email,
-                  keyboardType: TextInputType.emailAddress,
-                  controller: _emailEditingController,
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                // TextFormField(
-                //   controller: TextEditingController(text: selectedOption),
-                //   decoration: InputDecoration(
-                //     labelText: 'Choose an Option',
-                //   ),
-                //   readOnly: true,
-                //   onTap: () {
-                //     showDialog(
-                //       context: context,
-                //       builder: (BuildContext context) {
-                //         return AlertDialog(
-                //           title: Text('Select an Option'),
-                //           content: Container(
-                //             width: double.minPositive,
-                //             child: DropdownButtonFormField<String>(
-                //               value: selectedOption,
-                //               onChanged: (String? value) {
-                //                 setState(() {
-                //                   selectedOption = value;
-                //                 });
-                //                 Navigator.of(context).pop();
-                //               },
-                //               items: options.map<DropdownMenuItem<String>>((String value) {
-                //                 return DropdownMenuItem<String>(
-                //                   value: value,
-                //                   child: Text(value),
-                //                 );
-                //               }).toList(),
-                //             ),
-                //           ),
-                //         );
-                //       },
-                //     );
-                //   },
-                // ),
-                
-              // DropdownButtonFormField(items: DropdownMenuItem(
-              //
-              // ), onChanged: onChanged)
-                
-                AppTextField(
-                  title: 'كلمة المرور',
-                  hint: 'كلمة المرور',
-                  prefixIcon: Icons.lock,
-                  keyboardType: TextInputType.text,
-                  controller: _passwordController,
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                AppTextField(
-                  title: 'تأكيد كلمة المرور',
-                  hint: 'تأكيد كلمة المرور',
-                  prefixIcon: Icons.lock,
-                  keyboardType: TextInputType.text,
-                  controller: _confirmPasswordController,
-                ),
-                SizedBox(
-                  height:38.h,
-                ),
-                AppElevatedButton(text: 'تسجيل جديد')
-              ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.symmetric(horizontal: 13.w,vertical: 15.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppTextField(
+              title: 'الاسم الأول',
+              hint: 'الاسم الأول',
+              prefixIcon: Icons.person,
+              keyboardType: TextInputType.text,
+              controller: _firstNamecontroller,
             ),
-          ),
+            SizedBox(
+              height: 5.h,
+            ),
+            AppTextField(
+              title: 'اسم العائلة',
+              hint: 'اسم العائلة',
+              prefixIcon: Icons.person,
+              keyboardType: TextInputType.text,
+              controller: _famailyNameController,
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            AppTextField(
+              title: 'البريد الالكتروني',
+              hint: 'البريد الالكتروني',
+              prefixIcon: Icons.email,
+              keyboardType: TextInputType.emailAddress,
+              controller: _emailEditingController,
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            // TextFormField(
+            //   controller: TextEditingController(text: selectedOption),
+            //   decoration: InputDecoration(
+            //     labelText: 'Choose an Option',
+            //   ),
+            //   readOnly: true,
+            //   onTap: () {
+            //     showDialog(
+            //       context: context,
+            //       builder: (BuildContext context) {
+            //         return AlertDialog(
+            //           title: Text('Select an Option'),
+            //           content: Container(
+            //             width: double.minPositive,
+            //             child: DropdownButtonFormField<String>(
+            //               value: selectedOption,
+            //               onChanged: (String? value) {
+            //                 setState(() {
+            //                   selectedOption = value;
+            //                 });
+            //                 Navigator.of(context).pop();
+            //               },
+            //               items: options.map<DropdownMenuItem<String>>((String value) {
+            //                 return DropdownMenuItem<String>(
+            //                   value: value,
+            //                   child: Text(value),
+            //                 );
+            //               }).toList(),
+            //             ),
+            //           ),
+            //         );
+            //       },
+            //     );
+            //   },
+            // ),
+
+          // DropdownButtonFormField(items: DropdownMenuItem(
+          //
+          // ), onChanged: onChanged)
+
+            AppTextField(
+              title: 'كلمة المرور',
+              hint: 'كلمة المرور',
+              prefixIcon: Icons.lock,
+              keyboardType: TextInputType.text,
+              controller: _passwordController,
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            AppTextField(
+              title: 'تأكيد كلمة المرور',
+              hint: 'تأكيد كلمة المرور',
+              prefixIcon: Icons.lock,
+              keyboardType: TextInputType.text,
+              controller: _confirmPasswordController,
+            ),
+            SizedBox(
+              height:38.h,
+            ),
+            AppElevatedButton(text: 'تسجيل جديد',onPressed: (){
+              Navigator.pushNamed(context, '/email_code_verification');
+            },)
+          ],
         ),
       ),
     );

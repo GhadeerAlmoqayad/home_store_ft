@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:home_store_ft/screens/app/back_ground_screen.dart';
 import 'package:home_store_ft/utils/app_constants.dart';
 
+import '../../widgets/custom_app_bar.dart';
+
 class StarRating extends StatefulWidget {
   const StarRating({Key? key}) : super(key: key);
 
@@ -23,7 +25,15 @@ class _StarRatingState extends State<StarRating> {
   @override
   Widget build(BuildContext context) {
     return BackGroundScreen(
-        appBar: AppBar(),
+        appBar: CustomAppBar(
+          title:"قيم التطبيق",
+          leadingIcon: Icons.arrow_back_ios,
+          onPressedLeading: (){
+            Navigator.pop(context);
+          },
+
+        ),
+
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -34,6 +44,7 @@ class _StarRatingState extends State<StarRating> {
                 'الرجاء إضافة تقييم لخدمات التطبيق',
                 style: GoogleFonts.cairo(
                   color: AppConstants.primaryGreenColor,
+                  fontWeight: FontWeight.bold
                 ),
               ),
               SizedBox(
@@ -52,13 +63,30 @@ class _StarRatingState extends State<StarRating> {
                     ),
                 ],
               ),
+              SizedBox(height: 57.h,),
               Container(
                 height: 123.h,
                 width: 303.w,
-                child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                ),
+
+                  child: Row(
+                    children:[ Expanded(
+                      child: TextField(
+                        expands: true,
+                        maxLines: null,
+
+                        decoration: InputDecoration(
+
+                            border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),]
+                  ),
+
               ),
+              SizedBox(height: 49.h,),
+
               Container(
 
                 decoration: BoxDecoration(
@@ -76,11 +104,11 @@ class _StarRatingState extends State<StarRating> {
                         elevation: 0,
                         minimumSize: Size(184.w, 50.h),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.r),
+                          borderRadius: BorderRadius.circular(15.r),
                         )
                     ),
                     child: Text(
-                      "تسجيل الدخول",
+                      "موافق",
                       style: GoogleFonts.cairo(),
                     )),
               )

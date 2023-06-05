@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_store_ft/utils/app_constants.dart';
 
+import '../../widgets/second_elevated_button.dart';
+
 class PreviousOrders extends StatefulWidget {
   const PreviousOrders({Key? key}) : super(key: key);
 
@@ -14,10 +16,9 @@ class _PreviousOrdersState extends State<PreviousOrders> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 4.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
         itemBuilder: (BuildContext context, int index) {
-          return
-            Row(
+          return Row(
             children: [
               Container(
                 width: 105.w,
@@ -39,7 +40,8 @@ class _PreviousOrdersState extends State<PreviousOrders> {
                   Text(
                     'السعر',
                     style: GoogleFonts.cairo(
-                        color: AppConstants.secondaryLightTextGreyColor, fontSize: 14.sp),
+                        color: AppConstants.secondaryLightTextGreyColor,
+                        fontSize: 14.sp),
                   ),
                 ],
               ),
@@ -51,43 +53,28 @@ class _PreviousOrdersState extends State<PreviousOrders> {
                       Text(
                         'الأحد',
                         style: GoogleFonts.cairo(
-                            color: AppConstants.secondaryLightTextGreyColor, fontSize: 10.sp),
+                            color: AppConstants.secondaryLightTextGreyColor,
+                            fontSize: 10.sp),
                       ),
                       Text(
                         "28/5/2023",
                         style: GoogleFonts.cairo(
-                            color: AppConstants.secondaryLightTextGreyColor, fontSize: 10.sp),
+                            color: AppConstants.secondaryLightTextGreyColor,
+                            fontSize: 10.sp),
                       ),
                       Text(
                         '11:00 pm',
                         style: GoogleFonts.cairo(
-                            color: AppConstants.secondaryLightTextGreyColor, fontSize: 10.sp),
+                            color: AppConstants.secondaryLightTextGreyColor,
+                            fontSize: 10.sp),
                       ),
                     ],
                   ),
-                  SizedBox(height: 70.h,),
-                  Container(
-                    decoration: BoxDecoration(
+                  SizedBox(
+                    height: 70.h,
+                  ),
+                 SecondElevated(text: "تأكيد الطلب",),
 
-                      borderRadius: BorderRadius.circular(25.r),
-                      gradient: LinearGradient(colors: [
-                        AppConstants.primaryGreenColor,
-                        AppConstants.secondaryGreenColor,
-                      ])
-                    ),
-                    child: ElevatedButton(onPressed: (){}, child: Text('إعادة الطلب', style: GoogleFonts.cairo(
-                      fontSize: 14.sp,
-                      color: Colors.white,
-
-                    ),
-                    ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(110.w, 30.h),
-                        backgroundColor: Colors.transparent ,
-                        elevation: 0,
-                      ),
-                    ),
-                  )
                 ],
               )
             ],
@@ -112,3 +99,4 @@ class _PreviousOrdersState extends State<PreviousOrders> {
         itemCount: 20);
   }
 }
+

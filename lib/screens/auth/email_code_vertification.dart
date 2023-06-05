@@ -19,7 +19,9 @@ class _EmailCodeVerificationState extends State<EmailCodeVerification> {
   @override
   Widget build(BuildContext context) {
     return BackGroundScreen(
-        appBar: CustomAppBar(title: 'تأكيد البريد الالكتروني'),
+        appBar: CustomAppBar(title: 'تأكيد البريد الالكتروني',leadingIcon: Icons.arrow_back_ios,onPressedLeading: (){
+          Navigator.pop(context);
+        },),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 1.h),
           child: SingleChildScrollView(
@@ -55,6 +57,7 @@ class _EmailCodeVerificationState extends State<EmailCodeVerification> {
                     ],
                   ),
                 ),
+                SizedBox(height: 38.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -64,10 +67,6 @@ class _EmailCodeVerificationState extends State<EmailCodeVerification> {
                     CustomCodeField(),
                   ],
                 ),
-                SizedBox(
-                  height: 226.h,
-                ),
-                AppElevatedButton(text: 'تأكيد')
               ],
             ),
           ),

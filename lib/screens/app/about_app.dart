@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:home_store_ft/screens/app/back_ground_screen.dart';
-import 'package:home_store_ft/widgets/custom_app_bar.dart';
 
-class TermsAndConditions extends StatelessWidget {
-  const TermsAndConditions({Key? key}) : super(key: key);
+import '../../widgets/custom_app_bar.dart';
+import 'back_ground_screen.dart';
+
+class AboutApp extends StatelessWidget {
+  const AboutApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BackGroundScreen(
         appBar: CustomAppBar(
-          title: "الشروط و الأحكام",
+          title: "سياسة الخصوصية",
           leadingIcon: Icons.arrow_back_ios,
           onPressedLeading: (){
             Navigator.pop(context);

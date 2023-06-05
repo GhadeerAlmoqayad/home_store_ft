@@ -15,6 +15,7 @@ class AppTextField extends StatelessWidget {
     this.focusedBorderdColor ,
     this.obscureText =false ,
     this.suffixIcon,
+    this.hasPrefixIcon = false ,
 
     super.key,
   });
@@ -27,6 +28,8 @@ class AppTextField extends StatelessWidget {
   final Color? focusedBorderdColor;
   final Widget? suffixIcon ;
   final bool obscureText ;
+  final bool hasPrefixIcon ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +54,8 @@ class AppTextField extends StatelessWidget {
             obscureText: obscureText,
 controller: controller,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(0),
-              prefixIcon:Icon( prefixIcon , color: AppConstants.textFieldBorder),
+              contentPadding: EdgeInsets.symmetric(horizontal: 2.w ,vertical: 0),
+              prefixIcon:hasPrefixIcon ?Icon( prefixIcon , color: AppConstants.textFieldBorder):null,
                 suffixIcon: suffixIcon,
                 border: OutlineInputBorder(
 
@@ -64,15 +67,18 @@ color: AppConstants.textFieldBorder,
 
                 ),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppConstants.textFieldBorder)
+                    borderSide: BorderSide(color: AppConstants.textFieldBorder),
+                    borderRadius: BorderRadius.circular(10.r)
 
                 )  ,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppConstants.textFieldBorder)
+                    borderSide: BorderSide(color: AppConstants.textFieldBorder),
+                    borderRadius: BorderRadius.circular(10.r)
 
                 ),
                 disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppConstants.textFieldBorder)
+                    borderSide: BorderSide(color: AppConstants.textFieldBorder),
+                    borderRadius: BorderRadius.circular(10.r)
                 )
 
 

@@ -15,20 +15,24 @@ class ShippingScreen extends StatefulWidget {
 }
 
 class _ShippingScreenState extends State<ShippingScreen> {
+
+  String? selectedValue ;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: 410.h,
-              maxWidth: 334.w
-            ),
-            child: ListView.builder(
-           //   padding: EdgeInsets.symmetric(vertical: 12.h,horizontal: 0),
-              padding: EdgeInsets.zero,
+    return SingleChildScrollView(
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 20.w,vertical: 0),
+        child: Column(
+          children: [
+            ListView.builder(
+
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+                //   padding: EdgeInsets.symmetric(vertical: 12.h,horizontal: 0),
+                padding: EdgeInsets.zero,
                 itemCount: 6,
                 itemBuilder: (context, index) {
+                  final value = 'Option $index';
 // return Card(
 //
 //   elevation: 0,
@@ -39,92 +43,189 @@ class _ShippingScreenState extends State<ShippingScreen> {
 //   ),
 //
 // );
-                return Padding(
-                  padding:  EdgeInsets.symmetric(vertical: 12.h,horizontal: 0),
-                  child: Container(
-                    width: 334.w,
-                    height: 128.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.r),
-                      border: Border.all(
-                        color: AppConstants.shippingCard,
-                        width: 1.0,
+                  return Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 0),
+                    child: Container(
+                      width: 334.w,
+                      height: 128.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.r),
+                        border: Border.all(
+                          color: AppConstants.shippingCard,
+                          width: 1.0,
+                        ),
+                      ),
+                      child: RadioListTile<String>(
+                        title: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'شركة الشحن',
+                                  style: GoogleFonts.cairo(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppConstants.primaryGreenColor),
+                                ),
+                                Spacer(),
+
+                                Text(
+                                  'شركة الشحن',
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 12.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "رسوم الشحن",
+                                  style: GoogleFonts.cairo(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppConstants.primaryGreenColor),
+                                ),
+                                Spacer(),
+                                Text(
+                                  '5.00',
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 12.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(width:5.w),
+                                Text(
+                                  'SAR',
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 12.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'شروط الشحن',
+                                  style: GoogleFonts.cairo(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppConstants.primaryGreenColor),
+                                ),
+                                Spacer(),
+
+                                Text(
+                                  'شروط الشحن',
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 12.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+
+                              ],
+                            ),
+
+                          ],
+                        ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedValue = newValue;
+                            print("ccccccccccccccccccccccccccccccccccc");
+                            print(value);
+                          });
+                        },
+                        groupValue: selectedValue,
+                        value: value,
                       ),
                     ),
-                    child: Column(
-                      children: [
-
-                      ],
+                  );
+                }),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 12.w),
+              child: Column(children: [
+                Row(
+                  children: [
+                    Text(
+                      'رسوم الشحن',
+                      style: GoogleFonts.cairo(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
                     ),
+                    Spacer(),
+                    Text(
+                      '5.00',
+                      style: GoogleFonts.cairo(
+                        fontSize: 12.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      'SAR',
+                      style: GoogleFonts.cairo(
+                        fontSize: 12.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'إجمالي السعر',
+                      style: GoogleFonts.cairo(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: AppConstants.primaryGreenColor),
+                    ),
+                    Spacer(),
+                    Text(
+                      '5.00',
+                      style: GoogleFonts.cairo(
+                        fontSize: 12.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      'SAR',
+                      style: GoogleFonts.cairo(
+                        fontSize: 12.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],),
+            ),
 
-                  ),
-                );
-
-            })),
-        Row(
-          children: [
-            Text(
-              'رسوم الشحن',
-              style: GoogleFonts.cairo(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-              ),
+            SizedBox(
+              height: 30.h,
             ),
-            Spacer(),
-            Text(
-              '5.00',
-              style: GoogleFonts.cairo(
-                fontSize: 12.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: 5.w),
-            Text(
-              'SAR',
-              style: GoogleFonts.cairo(
-                fontSize: 12.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            AppElevatedButton(text: "اختيار"),
+            SizedBox(height: 80.h,)
           ],
         ),
-
-        Row(
-          children: [
-            Text(
-              'إجمالي السعر',
-              style: GoogleFonts.cairo(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppConstants.primaryGreenColor),
-            ),
-            Spacer(),
-            Text(
-              '5.00',
-              style: GoogleFonts.cairo(
-                fontSize: 12.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: 5.w),
-            Text(
-              'SAR',
-              style: GoogleFonts.cairo(
-                fontSize: 12.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 30.h,),
-        AppElevatedButton(text: "اختيار")
-      ],
+      ),
     );
   }
 }

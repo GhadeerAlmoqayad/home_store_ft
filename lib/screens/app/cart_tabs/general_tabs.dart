@@ -8,7 +8,10 @@ import 'package:home_store_ft/widgets/custom_app_bar.dart';
 import '../../../utils/app_constants.dart';
 import '../../auth/login_screen.dart';
 import '../../auth/register_screen.dart';
+import 'addresses_screen.dart';
 import 'cart_screen.dart';
+import 'confirmation_screen.dart';
+import 'finish_request.dart';
 
 class GeneralTabs extends StatefulWidget {
   const GeneralTabs({Key? key}) : super(key: key);
@@ -150,11 +153,11 @@ class _GeneralTabsState extends State<GeneralTabs>
 
                 controller: _tabController, children: [
 CartScreen(),
-              RegisterScreen(),
+AddressesScreen(),
               ShippingScreen(),
               RegisterScreen(),
-              LoginScreen(),
-              RegisterScreen(),
+              Confirmation(),
+              FinishRequest()
             ]),
           )
         ],
